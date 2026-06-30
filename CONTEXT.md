@@ -1,0 +1,251 @@
+# Guzhouyue Blog
+
+This context describes the reader-facing content language for Guzhouyue Blog. It keeps the blog's content discovery terms precise as the site grows beyond linear article lists.
+
+## Language
+
+**Reader**:
+A public visitor who reads published blog content and uses discovery surfaces to move between related articles and ideas.
+_Avoid_: User, customer, admin
+
+**Knowledge Graph Index**:
+A reader-facing discovery layer derived from published blog content that connects articles, concepts, and relationships.
+_Avoid_: Knowledge graph platform, graph database, AI database
+
+**Starfield Knowledge Map**:
+A reader-facing exploration entry where published articles and their knowledge relationships are presented as a starfield. It complements normal reading, search, and article lists rather than replacing them.
+_Avoid_: Main navigation, landing page, decoration
+
+**Starfield Navigation Entry**:
+A public navigation item that opens the Starfield Knowledge Map for Readers.
+_Avoid_: Admin tool, hidden feature
+
+**Published Starfield**:
+The precomputed, reader-visible set of Visible Passages and reviewed Passage Relationships used by the Starfield Knowledge Map.
+_Avoid_: Live extraction, draft graph
+
+**Starfield Management**:
+An administrator-facing area for generating, reviewing, and publishing starfield content.
+_Avoid_: Article editor, public starfield
+
+**Manual Starfield Generation**:
+An administrator-triggered action that creates Passage Suggestions and Passage Relationship suggestions for review.
+_Avoid_: Automatic publish hook, draft autosave
+
+**Selected Article Generation**:
+Manual Starfield Generation run against administrator-selected Articles before broader site-wide generation is considered.
+_Avoid_: Full rebuild by default
+
+**Passage-First Generation**:
+A generation flow where Passage Suggestions are created and reviewed before Passage Relationship suggestions are created.
+_Avoid_: One-shot graph generation
+
+**Starfield Regeneration**:
+An administrator-triggered action that creates a new candidate or published starfield version without destroying the previous usable version.
+_Avoid_: Destructive rebuild
+
+**Incremental Starfield Version**:
+A draft Starfield Version derived from the current Published Starfield so new Articles can be added without re-cutting or re-reviewing existing Visible Passages.
+_Avoid_: Mutating active starfield, full rebuild by default
+
+**Parent Starfield Version**:
+The Starfield Version that an Incremental Starfield Version was derived from. It remains usable and can be restored even after a child version is published.
+_Avoid_: Overwritten version, backup copy
+
+**Starfield Version**:
+An administrator-managed snapshot of the Published Starfield. Administrators decide which Starfield Version is visible to Readers.
+_Avoid_: Reader-selectable timeline
+
+**Focused Star**:
+The Passage currently selected by a Reader in the Starfield Knowledge Map. Focusing a star keeps the Reader in the map while revealing nearby related stars and an explicit path to the source Article.
+_Avoid_: Open article, selected card
+
+**Related Star**:
+A Passage shown near a Focused Star because a reviewed Passage Relationship connects them. Related Stars should prefer Passages from different Articles and show the Relationship Type that explains the connection.
+_Avoid_: Same-article outline, unlabeled edge
+
+**Passage**:
+A meaningful excerpt or section within a published article that can appear as its own star in the Starfield Knowledge Map. A Passage belongs to exactly one Article.
+_Avoid_: Paragraph, block, snippet
+
+**Source Article**:
+The published Article that a Passage belongs to. The Source Article gives the Passage its reading context and destination for explicit article navigation.
+_Avoid_: Parent page, container
+
+**Passage Anchor**:
+A stable destination inside a Source Article that lets a Reader navigate from a star directly to the corresponding Passage.
+_Avoid_: Article top, scroll guess
+
+**Passage Text**:
+The source excerpt stored for a Passage so it can be displayed, searched, and later used as grounded context. It is taken from the Source Article without rewriting and is not a duplicate of the full Article.
+_Avoid_: Full article copy, raw markdown dump, rewritten passage
+
+**Passage Keyword**:
+A concept, topic, tool, or named idea associated with a Passage. Passage Keywords help describe and retrieve stars without becoming stars themselves in the first version.
+_Avoid_: Concept node, tag-only navigation
+
+**Canonical Passage Keyword**:
+A normalized Passage Keyword produced by merging highly similar Passage Keywords across Passages. It gives relationship generation a shared vocabulary while remaining evidence for Passage Relationships rather than a visible node.
+_Avoid_: Keyword node, concept node, reader-facing tag
+
+**Keyword-Derived Relationship**:
+A Passage Relationship proposed because multiple Passages share the same normalized Passage Keyword or highly similar Passage Keywords. The normalized keyword is evidence for the edge, not a graph node.
+_Avoid_: Keyword node, tag node, concept star
+
+**Concrete Relationship Mining**:
+The discovery of Passage Relationships whose usefulness can be explained by explicit topics, tools, named concepts, or direct semantic continuity between two Passages.
+_Avoid_: Tag matching, broad same-topic grouping
+
+**Deep Relationship Mining**:
+The discovery of Passage Relationships whose usefulness comes from shared problem structure, transferable method, underlying principle, recurring trade-off, or implementation pattern rather than obvious shared keywords.
+_Avoid_: Same-topic mining, keyword expansion, tag similarity
+
+**Deep Relationship Path**:
+A directional discovery path across multiple Passages where each step answers, extends, reframes, or transfers the Reader's understanding from the previous Passage. A Deep Relationship Path can make a distant Passage meaningful through an intermediate Passage even when the endpoints do not have a direct Passage Relationship.
+_Avoid_: Multi-tag match, undirected cluster, simple edge
+
+**Inquiry-Driven Exploration**:
+A Deep Relationship Mining approach where each source Passage first produces Reader-like inquiries, then searches for other Passages that answer, extend, challenge, or transfer those inquiries into a meaningful path.
+_Avoid_: Keyword search, tag expansion, pairwise similarity scoring
+
+**Inquiry**:
+A Reader-like question, curiosity, gap, or next-step intent that naturally emerges from a Passage and can guide discovery toward another Passage.
+_Avoid_: Search keyword, tag, relationship label
+
+**Cognitive Exploration Agent**:
+An LLM-mediated role in Inquiry-Driven Exploration that performs one part of the Reader-like discovery process, such as asking, searching, path-building, or challenging a Deep Relationship Path.
+_Avoid_: Local rule, scoring function, batch script
+
+**Inquirer Agent**:
+A Cognitive Exploration Agent that reads a source Passage and produces Reader-like Inquiries that can drive further discovery.
+_Avoid_: Keyword extractor, tag generator
+
+**Retriever Agent**:
+A Cognitive Exploration Agent that uses LLM-Led Retrieval to find Passages that may satisfy an Inquiry.
+_Avoid_: Search index, keyword matcher
+
+**Path-Builder Agent**:
+A Cognitive Exploration Agent that organizes a source Passage, candidate Passages, and possible intermediate Passages into a directional Deep Relationship Path.
+_Avoid_: Pair scorer, edge classifier
+
+**Critic Agent**:
+A Cognitive Exploration Agent that challenges whether a proposed Deep Relationship Path is grounded, useful, non-trivial, and not merely a same-topic connection.
+_Avoid_: Confidence score, validation script
+
+**LLM-Led Retrieval**:
+A retrieval step where an LLM decides the search perspectives, relevance, and inquiry fit, while tools may perform mechanical recall, ranking, deduplication, storage, or lookup.
+_Avoid_: Keyword-only retrieval, embedding-only retrieval, rule-led candidate generation
+
+**Passage Relationship**:
+A reader-facing connection between two Passages, including connections across different Articles.
+_Avoid_: Article relationship, backlink
+
+**Relationship Rebuild Diff**:
+The comparison between a Parent Starfield Version's reviewed Passage Relationships and a regenerated relationship set in an Incremental Starfield Version. It classifies relationships as reconfirmed, new, changed, or removed so administrators review only meaningful relationship changes.
+_Avoid_: Full relationship re-approval, append-only edge patch
+
+**Reconfirmed Relationship**:
+A Passage Relationship that existed in the Parent Starfield Version and is still produced by relationship regeneration with the same Passage pair and Relationship Type. It can remain accepted while retaining the previously reviewed Relationship Rationale.
+_Avoid_: Unreviewed rewritten relationship, duplicate candidate
+
+**Cross-Article Relationship**:
+A Passage Relationship where the connected Passages come from different Source Articles. Cross-Article Relationships are the primary discovery value of the Starfield Knowledge Map.
+_Avoid_: Same-article outline
+
+**Same-Article Relationship**:
+A Passage Relationship where the connected Passages come from the same Source Article. Same-Article Relationships provide local context but are not the primary discovery value of the Starfield Knowledge Map.
+_Avoid_: Cross-article discovery
+
+**Passage Title**:
+The short visible label used for a Passage star in the Starfield Knowledge Map. It is meant to be readable, specific, and concise.
+_Avoid_: Full heading tree, article title
+
+**Star Size**:
+The visual scale of a Passage star. In the Starfield Knowledge Map, Star Size represents connection strength or relationship richness rather than article importance.
+_Avoid_: Popularity score, ranking
+
+**Star Color**:
+The visual color of a Passage star. In the Starfield Knowledge Map, Star Color reflects the Source Article's category.
+_Avoid_: Relationship type, status flag
+
+**Global Starfield View**:
+The initial Starfield Knowledge Map view that shows the overall constellation before a Reader focuses any star.
+_Avoid_: Default focused star, random starting point
+
+**Immersive Starfield View**:
+A compact Reader-facing layout for small landscape screens where the Starfield Knowledge Map remains the primary surface and supporting panels are available on demand. It preserves exploration first, then reveals relationship filters, Focused Star details, and Source Article navigation when the Reader asks for them.
+_Avoid_: Admin-style three-column dashboard, always-visible control panels
+
+**Passage Curation**:
+The act of choosing meaningful Passages from a published Article for reader exploration.
+_Avoid_: Paragraph splitting, chunking
+
+**Passage Suggestion**:
+A candidate Passage or Passage Relationship proposed for review before it becomes visible in the Starfield Knowledge Map.
+_Avoid_: Published passage, draft article
+
+**Visible Passage**:
+A reviewed Passage that is allowed to appear to Readers in the Starfield Knowledge Map.
+_Avoid_: Suggestion, raw extraction
+
+**Passage Review**:
+The administrator decision to accept or hide Passage Suggestions before they can become Visible Passages. Review may happen in batches, but each Passage keeps its own review outcome.
+_Avoid_: Article approval, automatic approval
+
+**Relationship Type**:
+A controlled label that explains why two Passages are connected for Readers.
+_Avoid_: Free-form relation, hidden score
+
+**Relationship Rationale**:
+A short explanation of why a Passage Relationship is useful or meaningful for Readers. It is shown during review and can also explain visible connections in the Starfield Knowledge Map.
+_Avoid_: Model trace, hidden prompt, confidence score
+
+**Reader GraphRAG**:
+A future reader-facing question-answering experience that answers from Visible Passages and reviewed Passage Relationships.
+_Avoid_: Chatbot, generic AI answer, ungrounded answer
+
+**Grounded Answer**:
+A future answer to a Reader's question that is supported by Visible Passages and can point back to the source Articles.
+_Avoid_: Summary, opinion, hallucinated answer
+
+**GraphRAG-Ready Starfield**:
+A Starfield Knowledge Map whose reviewed Passages and Passage Relationships retain enough source, rationale, and review context to support a future Reader GraphRAG experience.
+_Avoid_: Current chatbot, model-only search
+
+## Administrator Private Workspace
+
+**Private Memo Item**:
+A private reminder, task, or temporary thought recorded by the administrator in the admin area. Task records and memos are the same kind of item here; the item is not public blog content and never appears on reader-facing pages.
+_Avoid_: Article, Note, Admin Task, Task Record, Comment
+
+**Private Memo Text**:
+The plain text content of a Private Memo Item. It is intentionally not Markdown, rich text, image content, formula content, or article structure.
+_Avoid_: Markdown body, Rich text, Image attachment, Formula, Article section
+
+**Private Memo Quick Capture**:
+A short-form way for the administrator to create a Private Memo Item at the moment a task or thought appears. It captures the item first and leaves optional reminder or time-window detail for later refinement.
+_Avoid_: Full editor, Article composer, Rich capture
+
+**Private Memo Progress Node**:
+A dated plain-text entry in the history of a Private Memo Item that records a meaningful change, discovery, blocker, reopening, or completion. Progress node timestamps are part of the item's private history and should not be overwritten.
+_Avoid_: Comment, Chat message, Article revision, Audit log
+
+**Private Memo Reminder**:
+An administrator-facing cue for an open Private Memo Item that is due, overdue, or intentionally kept visible. It exists only inside the admin area and is separate from reader-facing notifications.
+_Avoid_: Public notification, Comment notification, Admin Task status
+
+**Overdue Private Memo Reminder**:
+A Private Memo Reminder for an open Private Memo Item whose reminder time has passed. It should make the elapsed overdue time clear to the administrator.
+_Avoid_: Snoozed reminder, Public alert, Calendar event
+
+**Private Memo Area**:
+The admin-only workspace where the administrator creates, reviews, and clears Private Memo Items. It is reachable only from the admin area and is not part of the public homepage, public navigation, reader search, sitemap, or public content APIs.
+_Avoid_: Public page, Blog section, Reader navigation, Homepage widget
+
+**Open Private Memo Item**:
+A Private Memo Item that is still active and may need the administrator's attention. Open items are the only private memo items eligible for Private Memo Reminders.
+_Avoid_: Draft article, Pending comment, Running job
+
+**Done Private Memo Item**:
+A Private Memo Item that has been completed and retained as private history. Done items do not produce Private Memo Reminders.
+_Avoid_: Deleted memo, Published content

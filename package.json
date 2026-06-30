@@ -1,0 +1,38 @@
+{
+  "name": "guzhouyue-blog",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0 --port 5173 --strictPort",
+    "dev:server": "python -m server_py.app",
+    "seed:server": "python -m server_py.seed",
+    "seed:test-articles": "python -m server_py.seed_test_articles",
+    "test:server": "python -m server_py.smoke_test && python -m server_py.compat_test",
+    "test:theme": "node scripts/audit-theme-vars.mjs",
+    "build": "node scripts/audit-theme-vars.mjs && tsc --noEmit && vite build",
+    "preview": "vite preview --host 0.0.0.0 --port 4173 --strictPort"
+  },
+  "dependencies": {
+    "@mdxeditor/editor": "^4.0.0",
+    "highlight.js": "^11.11.1",
+    "katex": "^0.16.47",
+    "lucide-react": "^0.561.0",
+    "react": "^19.2.3",
+    "react-dom": "^19.2.3",
+    "react-markdown": "^10.1.0",
+    "rehype-highlight": "^7.0.2",
+    "rehype-katex": "^7.0.1",
+    "remark-gfm": "^4.0.1",
+    "remark-math": "^6.0.0",
+    "three": "^0.184.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.7",
+    "@types/react-dom": "^19.2.3",
+    "@types/three": "^0.184.1",
+    "@vitejs/plugin-react": "^6.0.2",
+    "typescript": "^5.9.3",
+    "vite": "^8.0.16"
+  }
+}
