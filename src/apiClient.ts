@@ -438,6 +438,27 @@ const jsonHeaders = {
   'Content-Type': 'application/json; charset=utf-8',
 };
 
+async function requestStaticJson<T>(path: string): Promise<T> {
+  const response = await fetch(path, {
+    headers: { Accept: 'application/json' },
+    cache: 'no-cache',
+  });
+
+  if (!response.ok) {
+    throw new ApiError(response.status, path);
+  }
+
+  return (await response.json()) as T;
+}
+
+async function requestPublicJson<T>(apiPath: string, snapshotPath: string): Promise<T> {
+  try {
+    return await requestJson<T>(apiPath);
+  } catch {
+    return requestStaticJson<T>(snapshotPath);
+  }
+}
+
 async function requestJson<T>(path: string, init: RequestInit = {}): Promise<T> {
   const isFormData = typeof FormData !== 'undefined' && init.body instanceof FormData;
   const headers = new Headers(isFormData ? { Accept: 'application/json' } : jsonHeaders);
@@ -464,21 +485,21 @@ async function requestJson<T>(path: string, init: RequestInit = {}): Promise<T> 
 }
 
 export async function fetchPublicSite() {
-  return requestJson<ApiSitePayload>('/api/site');
+  return requestPublicJson<ApiSitePayload>('/api/site', '/data/site.json');
 }
 
 export async function fetchPublicArticles() {
-  const payload = await requestJson<ApiArticlesPayload | unknown[]>('/api/articles?pageSize=1000');
+  const payload = await requestPublicJson<ApiArticlesPayload | unknown[]>('/api/articles?pageSize=1000', '/data/articles.json');
   return Array.isArray(payload) ? payload : payload.items ?? [];
 }
 
 export async function fetchPublicGallery() {
-  const payload = await requestJson<unknown[] | { items?: unknown[] }>('/api/gallery');
+  const payload = await requestPublicJson<unknown[] | { items?: unknown[] }>('/api/gallery', '/data/gallery.json');
   return Array.isArray(payload) ? payload : payload.items ?? [];
 }
 
 export async function fetchPublicStarfield() {
-  const payload = await requestJson<ApiStarfieldPayload>('/api/starfield');
+  const payload = await requestPublicJson<ApiStarfieldPayload>('/api/starfield', '/data/starfield.json');
   return {
     version: payload.version ?? null,
     passages: (payload.passages ?? []).map(normalizeStarfieldPassage).filter((passage): passage is ApiStarfieldPassage => passage !== null),
@@ -488,22 +509,39 @@ export async function fetchPublicStarfield() {
 }
 
 export async function fetchPublicGalleryAlbumImages(albumIdOrSlug: string, options: { page?: number; pageSize?: number } = {}) {
+  const page = options.page ?? 1;
+  const pageSize = options.pageSize ?? 24;
   const params = new URLSearchParams({
-    page: String(options.page ?? 1),
-    pageSize: String(options.pageSize ?? 24),
+    page: String(page),
+    pageSize: String(pageSize),
   });
-  const payload = await requestJson<ApiGalleryImagesPayload>(
-    `/api/gallery/albums/${encodeURIComponent(albumIdOrSlug)}/images?${params.toString()}`,
-  );
-  const images = Array.isArray(payload.items) ? payload.items : [];
 
-  return {
-    items: images,
-    page: asNumber(payload.page, options.page ?? 1),
-    pageSize: asNumber(payload.pageSize, options.pageSize ?? 24),
-    pageCount: asNumber(payload.pageCount, 1),
-    total: asNumber(payload.total, images.length),
-  };
+  try {
+    const payload = await requestJson<ApiGalleryImagesPayload>(
+      `/api/gallery/albums/${encodeURIComponent(albumIdOrSlug)}/images?${params.toString()}`,
+    );
+    const images = Array.isArray(payload.items) ? payload.items : [];
+    return {
+      items: images,
+      page: asNumber(payload.page, page),
+      pageSize: asNumber(payload.pageSize, pageSize),
+      pageCount: asNumber(payload.pageCount, 1),
+      total: asNumber(payload.total, images.length),
+    };
+  } catch {
+    const snapshot = await requestStaticJson<{ items?: GalleryAlbum[] }>('/data/gallery.json');
+    const album = (snapshot.items ?? []).find((item) => item.id === albumIdOrSlug || item.slug === albumIdOrSlug);
+    const allImages = album?.images ?? [];
+    const start = (page - 1) * pageSize;
+    const images = allImages.slice(start, start + pageSize);
+    return {
+      items: images,
+      page,
+      pageSize,
+      pageCount: Math.max(1, Math.ceil(allImages.length / pageSize)),
+      total: allImages.length,
+    };
+  }
 }
 
 export async function fetchAdminContent(): Promise<ApiContentPayload> {
@@ -696,8 +734,14 @@ export async function deleteAdminGalleryImage(id: string) {
 }
 
 export async function fetchArticleComments(slug: string) {
-  const payload = await requestJson<unknown[] | { items?: unknown[] }>(`/api/articles/${encodeURIComponent(slug)}/comments`);
-  const comments = Array.isArray(payload) ? payload : payload.items ?? [];
+  let comments: unknown[] = [];
+  try {
+    const payload = await requestJson<unknown[] | { items?: unknown[] }>(`/api/articles/${encodeURIComponent(slug)}/comments`);
+    comments = Array.isArray(payload) ? payload : payload.items ?? [];
+  } catch {
+    const snapshot = await requestStaticJson<{ articles?: Record<string, unknown[]> }>('/data/comments.json');
+    comments = snapshot.articles?.[slug] ?? [];
+  }
   return comments.map(normalizeComment).filter((comment): comment is ApiComment => comment !== null);
 }
 
