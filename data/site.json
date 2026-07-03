@@ -40,7 +40,7 @@
       "description": "Web 安全、网络协议与攻防记录",
       "sortOrder": 0,
       "createdAt": "2026-06-08T05:36:36.170Z",
-      "updatedAt": "2026-06-29T04:23:30.661Z"
+      "updatedAt": "2026-07-01T08:20:08.634Z"
     },
     {
       "id": "section_游戏开发",
@@ -50,7 +50,7 @@
       "description": "Unity、UE、Pygame 与玩法系统笔记",
       "sortOrder": 1,
       "createdAt": "2026-06-08T05:36:36.170Z",
-      "updatedAt": "2026-06-29T04:23:30.661Z"
+      "updatedAt": "2026-07-01T08:20:08.634Z"
     },
     {
       "id": "section_人工智能",
@@ -60,7 +60,7 @@
       "description": "模型、智能体和数据建模学习",
       "sortOrder": 2,
       "createdAt": "2026-06-08T05:36:36.170Z",
-      "updatedAt": "2026-06-29T04:23:30.661Z"
+      "updatedAt": "2026-07-01T08:20:08.634Z"
     },
     {
       "id": "section_生活备考",
@@ -70,7 +70,7 @@
       "description": "考试错题和日常整理",
       "sortOrder": 3,
       "createdAt": "2026-06-08T05:36:36.170Z",
-      "updatedAt": "2026-06-29T04:23:30.661Z"
+      "updatedAt": "2026-07-01T08:20:08.634Z"
     },
     {
       "id": "section_数据库",
@@ -80,7 +80,7 @@
       "description": "数据库系统与项目文档",
       "sortOrder": 4,
       "createdAt": "2026-06-08T05:36:36.170Z",
-      "updatedAt": "2026-06-29T04:23:30.661Z"
+      "updatedAt": "2026-07-01T08:20:08.634Z"
     },
     {
       "id": "section_技术笔记",
@@ -90,17 +90,17 @@
       "description": "记录前端、后端、工程化与系统设计实践。",
       "sortOrder": 5,
       "createdAt": "2026-06-08T05:36:36.170Z",
-      "updatedAt": "2026-06-29T04:23:30.661Z"
+      "updatedAt": "2026-07-01T08:20:08.634Z"
     },
     {
       "id": "section_mqoutwsr_9c800ght",
-      "name": "工业设计",
-      "category": "工业设计",
+      "name": "交叉学科",
+      "category": "交叉学科",
       "slug": "工业设计",
       "description": "记录一些结构力学等工业设计知识",
       "sortOrder": 6,
       "createdAt": "2026-06-22T06:48:43.095Z",
-      "updatedAt": "2026-06-29T04:23:30.661Z"
+      "updatedAt": "2026-07-01T08:20:08.634Z"
     }
   ],
   "featuredSeries": [
@@ -117,34 +117,35 @@
     }
   ],
   "almanac": {
-    "date": "2026-07-01",
-    "weekDay": "星期三",
+    "date": "2026-07-03",
+    "weekDay": "星期五",
     "lunarYear": "二零二六",
     "lunarMonth": "五月小",
-    "lunarDay": "十七",
+    "lunarDay": "十九",
     "zodiac": "马",
     "solarTerm": "",
     "nextSolarTerm": "小暑",
     "nextSolarTermDate": "2026-07-07",
-    "dayGanzhi": "丙子",
+    "dayGanzhi": "戊寅",
     "monthGanzhi": "甲午",
     "yearGanzhi": "丙午",
-    "zodiacClash": "鼠日冲马",
-    "levelName": "从忌不从宜",
+    "zodiacClash": "虎日冲猴",
+    "levelName": "从宜亦从忌",
     "goodThings": [
-      "祭祀",
-      "沐浴",
-      "恤孤茕",
-      "覃恩",
-      "雪冤"
-    ],
-    "badThings": [
-      "出行",
       "结婚姻",
       "宴会",
-      "嫁娶",
-      "安床",
-      "剃头"
+      "求医疗病",
+      "上官",
+      "入学",
+      "进人口"
+    ],
+    "badThings": [
+      "祭祀",
+      "安葬",
+      "远回",
+      "出师",
+      "选将",
+      "整手足甲"
     ],
     "source": "cnlunar"
   }
