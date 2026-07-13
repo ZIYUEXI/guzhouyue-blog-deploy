@@ -1,6 +1,37 @@
 {
   "items": [
     {
+      "id": "article_mrj3l9h6_hk7t4o6c",
+      "slug": "当前esm-s模型训练的问题",
+      "title": "当前ESM-S模型训练的问题",
+      "excerpt": "",
+      "categoryId": "section_人工智能",
+      "category": "人工智能",
+      "categorySlug": "人工智能",
+      "authorName": "紫月汐",
+      "status": "published",
+      "publishedAt": "2026-07-13T10:47:00.372Z",
+      "date": "2026.07.13",
+      "dateLabel": "2026.07.13",
+      "createdAt": "2026-07-13T10:47:01.434Z",
+      "updatedAt": "2026-07-13T10:47:01.434Z",
+      "tone": "ink",
+      "tags": [
+        "人工智能",
+        "算法",
+        "Python"
+      ],
+      "body": [
+        "1. 放开限制后桁条只有25根，中间框只有13根\n2. 和目标强度差距太大",
+        "但我个人认为1和2是共性问题"
+      ],
+      "bodyMarkdown": "1. 放开限制后桁条只有25根，中间框只有13根\n2. 和目标强度差距太大\n\n但我个人认为1和2是共性问题",
+      "seoTitle": "当前ESM-S模型训练的问题",
+      "seoDescription": "",
+      "coverImage": "",
+      "deletedAt": null
+    },
+    {
       "id": "article_mreaylyf_m2t59zyx",
       "slug": "稳定匹配",
       "title": "Gale-Shapley稳定匹配算法",
@@ -5479,5 +5510,5 @@
   "page": 1,
   "pageSize": 1000,
   "pageCount": 1,
-  "total": 58
+  "total": 59
 }
