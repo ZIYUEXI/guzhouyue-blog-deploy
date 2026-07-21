@@ -9,7 +9,7 @@
     "siteName": "孤舟月",
     "siteTagline": "一叶孤舟，照见人间月色",
     "heroTitle": "孤舟月",
-    "heroSubtitle": "写给长夜、山河与代码的私人札记。",
+    "heroSubtitle": "曾借人间三千年，还予星河一粒尘",
     "primaryCta": "读最新文章",
     "secondaryCta": "查看归档",
     "seasonAuto": true,
@@ -29,7 +29,7 @@
     "aboutTitle": "关于孤舟月",
     "aboutBody": "这里先是一处前端完整的静态博客入口，后续可以接入文章 API、Markdown 渲染、RSS、归档检索和后台编辑。现在的重点，是让站点先拥有清晰的气质、结构和交互。",
     "footerSlogan": "孤舟泊处，月色自来。",
-    "updatedAt": "2026-06-15T01:52:21.714Z"
+    "updatedAt": "2026-07-21T02:20:30.953Z"
   },
   "noteSections": [
     {
