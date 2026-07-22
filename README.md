@@ -1,3 +1,7 @@
 # Guzhouyue Blog Public Deploy
 
-Generated static deployment for Cloudflare Pages.
+This repository is generated from `ZIYUEXI/guzhouyue-blog`.
+
+- Public frontend is built in static snapshot mode.
+- Cloudflare Pages should deploy this repository root.
+- `/api/health` and comment submission are proxied by Pages Functions.
