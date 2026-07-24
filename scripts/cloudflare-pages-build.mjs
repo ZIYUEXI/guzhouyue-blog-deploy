@@ -9,10 +9,7 @@ rmSync(output, { recursive: true, force: true });
 mkdirSync(output, { recursive: true });
 
 for (const entry of readdirSync(root, { withFileTypes: true })) {
-  if (excluded.has(entry.name)) {
-    continue;
-  }
-  cpSync(join(root, entry.name), join(output, entry.name), { recursive: true });
+  if (!excluded.has(entry.name)) cpSync(join(root, entry.name), join(output, entry.name), { recursive: true });
 }
 
 console.log('Prepared prebuilt static files in dist/ for Cloudflare Pages.');
