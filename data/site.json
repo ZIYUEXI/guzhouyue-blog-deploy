@@ -117,35 +117,32 @@
     }
   ],
   "almanac": {
-    "date": "2026-08-01",
-    "weekDay": "星期六",
+    "date": "2026-08-02",
+    "weekDay": "星期日",
     "lunarYear": "二零二六",
     "lunarMonth": "六月大",
-    "lunarDay": "十九",
+    "lunarDay": "二十",
     "zodiac": "马",
     "solarTerm": "",
     "nextSolarTerm": "立秋",
     "nextSolarTermDate": "2026-08-07",
-    "dayGanzhi": "丁未",
+    "dayGanzhi": "戊申",
     "monthGanzhi": "乙未",
     "yearGanzhi": "丙午",
-    "zodiacClash": "羊日冲牛",
+    "zodiacClash": "猴日冲虎",
     "levelName": "从宜亦从忌",
     "goodThings": [
-      "出行",
-      "宴会",
-      "上官",
-      "进人口",
-      "经络",
-      "纳财"
+      "祭祀",
+      "沐浴",
+      "扫舍宇"
     ],
     "badThings": [
-      "剃头",
-      "求医疗病",
       "上表章",
-      "修置产室",
       "开渠",
-      "穿井"
+      "穿井",
+      "安葬",
+      "启攒",
+      "补垣"
     ],
     "source": "cnlunar"
   }
