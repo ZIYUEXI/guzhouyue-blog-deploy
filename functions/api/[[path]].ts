@@ -31,6 +31,10 @@ function isAllowedPublicApiRequest(request: Request, pathname: string) {
     return true;
   }
 
+  if (request.method === 'GET' && /^\/api\/articles\/[^/]+\/download$/.test(pathname)) {
+    return true;
+  }
+
   return request.method === 'POST' && /^\/api\/articles\/[^/]+\/comments$/.test(pathname);
 }
 
