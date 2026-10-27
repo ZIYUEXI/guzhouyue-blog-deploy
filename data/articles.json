@@ -1,6 +1,46 @@
 {
   "items": [
     {
+      "id": "article_mvq28038_hi94qzlk",
+      "slug": "隐藏-chrome-顶部chatgpt-已开始调试此浏览器的提示",
+      "title": "隐藏 Chrome 顶部“ChatGPT 已开始调试此浏览器”的提示",
+      "excerpt": "使用 ChatGPT 等扩展控制 Chrome 时，浏览器顶部常会出现“已开始调试此浏览器”的提示。本文介绍如何通过添加 --silent-debugger-extension-api 启动参数，在保留浏览器控制功能的同时隐藏这条提示。",
+      "categoryId": "section_技术笔记",
+      "category": "技术笔记",
+      "categorySlug": "技术笔记",
+      "authorName": "紫月汐",
+      "status": "published",
+      "publishedAt": "2026-10-27T02:21:54.459Z",
+      "date": "2026.10.27",
+      "dateLabel": "2026.10.27",
+      "createdAt": "2026-10-27T02:21:55.700Z",
+      "updatedAt": "2026-10-27T02:21:55.700Z",
+      "tone": "ink",
+      "tags": [
+        "技术笔记"
+      ],
+      "body": [
+        "用 ChatGPT 操作 Chrome 时，浏览器顶部经常会出现一条提示：",
+        "如图所示",
+        "![截图-20261027102128](/uploads/gallery/mvq27g04-c03e63bfeb33a3b8.webp)",
+        "> “ChatGPT”已开始调试此浏览器\n> 它会一直占着一条位置，看着挺烦。想保留浏览器控制功能，又隐藏这条提示，可以给 Chrome 加一个启动参数：",
+        "```text\n--silent-debugger-extension-api\n```",
+        "Windows 上的设置方法很简单：",
+        "1. 右键点击任务栏里的 Chrome 图标。\n2. 在弹出的菜单中，再右键点击“Google Chrome”，选择“属性”。\n3. 在“快捷方式”选项卡中，找到“目标”，在原有内容末尾加一个空格，再追加这个参数。",
+        "修改后的内容类似这样：",
+        "```text\n\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --silent-debugger-extension-api\n```",
+        "注意：**参数放在路径的引号外面，前面留一个空格。**",
+        "保存后，完全退出 Chrome，再通过这个快捷方式启动。之后扩展连接浏览器调试时，就不会再显示这条提示，浏览器控制功能仍然可以使用。",
+        "这个设置跟着启动入口走：改的是任务栏快捷方式，就从任务栏启动；桌面上的快捷方式需要单独修改。另外，它隐藏的是扩展调试提示，并不只针对 ChatGPT。",
+        "想恢复也很简单，把新增的参数删掉，再完全退出并重新打开 Chrome 即可。"
+      ],
+      "bodyMarkdown": "用 ChatGPT 操作 Chrome 时，浏览器顶部经常会出现一条提示：\n\n如图所示\n\n![截图-20261027102128](/uploads/gallery/mvq27g04-c03e63bfeb33a3b8.webp)\n\n> “ChatGPT”已开始调试此浏览器\n> 它会一直占着一条位置，看着挺烦。想保留浏览器控制功能，又隐藏这条提示，可以给 Chrome 加一个启动参数：\n\n```text\n--silent-debugger-extension-api\n```\n\nWindows 上的设置方法很简单：\n\n1. 右键点击任务栏里的 Chrome 图标。\n2. 在弹出的菜单中，再右键点击“Google Chrome”，选择“属性”。\n3. 在“快捷方式”选项卡中，找到“目标”，在原有内容末尾加一个空格，再追加这个参数。\n\n修改后的内容类似这样：\n\n```text\n\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --silent-debugger-extension-api\n```\n\n注意：**参数放在路径的引号外面，前面留一个空格。**\n\n保存后，完全退出 Chrome，再通过这个快捷方式启动。之后扩展连接浏览器调试时，就不会再显示这条提示，浏览器控制功能仍然可以使用。\n\n这个设置跟着启动入口走：改的是任务栏快捷方式，就从任务栏启动；桌面上的快捷方式需要单独修改。另外，它隐藏的是扩展调试提示，并不只针对 ChatGPT。\n\n想恢复也很简单，把新增的参数删掉，再完全退出并重新打开 Chrome 即可。",
+      "seoTitle": "隐藏 Chrome“ChatGPT 已开始调试此浏览器”提示的方法",
+      "seoDescription": "给 Chrome 快捷方式添加 --silent-debugger-extension-api 启动参数，即可隐藏扩展调试提示“ChatGPT 已开始调试此浏览器”，同时保留浏览器控制功能。本文附 Windows 设置步骤与恢复方法。",
+      "coverImage": "",
+      "deletedAt": null
+    },
+    {
       "id": "article_mv4zo5ee_09fdqey1",
       "slug": "从语义规划到确定性执行的有界子图端部球面舱壁设计的-agent-编排",
       "title": "从语义规划到确定性执行的有界子图：端部球面舱壁设计的 Agent 编排",
@@ -6833,5 +6873,5 @@
   "page": 1,
   "pageSize": 1000,
   "pageCount": 1,
-  "total": 76
+  "total": 77
 }
