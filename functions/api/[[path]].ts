@@ -79,6 +79,8 @@ export const onRequest: PagesFunction<PagesEnv> = async ({ request, env }) => {
   });
 
   const responseHeaders = copyProxyHeaders(response.headers);
+  // 公开接口不建立后台会话，禁止把上游 Cloudflare Access Cookie 发给读者。
+  responseHeaders.delete('set-cookie');
   responseHeaders.delete('content-encoding');
   responseHeaders.delete('content-length');
 
