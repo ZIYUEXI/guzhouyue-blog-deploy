@@ -135,9 +135,9 @@
       "祭祀",
       "捕捉",
       "畋猎",
-      "雪冤",
       "覃恩",
-      "恤孤茕"
+      "恤孤茕",
+      "雪冤"
     ],
     "badThings": [
       "出行",
@@ -148,5 +148,14 @@
       "剃头"
     ],
     "source": "cnlunar"
+  },
+  "media": {
+    "hero": {
+      "src": "/media/c938974d6dce398ae0a9-1672.webp",
+      "width": 1672,
+      "height": 941,
+      "srcSet": "/media/08d42ae2e50c5fce07d8-768.webp 768w, /media/c938974d6dce398ae0a9-1672.webp 1672w"
+    },
+    "avatar": "/media/324e42f0e4e5bc2c9bb0-160.webp"
   }
 }
