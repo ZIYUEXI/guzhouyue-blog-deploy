@@ -1,6 +1,37 @@
 {
   "items": [
     {
+      "id": "article_mwd64dgh_s5qldggd",
+      "slug": "让-abaqus-云图转起来从计算结果到网页三维",
+      "title": "让 Abaqus 云图转起来：从计算结果到网页三维",
+      "excerpt": "从已有 ODB 结果中导出云图和着色三维几何，再用 Three.js 在网页中旋转、缩放观察。用五张图记录基本流程与显示细节。",
+      "categoryId": "section_mqoutwsr_9c800ght",
+      "category": "交叉学科",
+      "categorySlug": "工业设计",
+      "authorName": "紫月汐",
+      "status": "published",
+      "publishedAt": "2026-11-12T06:32:20.938Z",
+      "date": "2026.11.12",
+      "dateLabel": "2026.11.12",
+      "createdAt": "2026-11-12T06:29:46.912Z",
+      "updatedAt": "2026-11-12T06:32:20.940Z",
+      "tone": "ink",
+      "tags": [
+        "Abaqus",
+        "有限元",
+        "三维可视化",
+        "Three.js"
+      ],
+      "body": [
+        "# 让 Abaqus 云图转起来：从计算结果到网页三维\r\n\r\n看有限元结果时，静态云图方便记录，但角度固定，背面和局部不容易看清。把结果放进网页三维视图，就可以旋转、放大，换个方向观察。\r\n\r\n![从计算结果到网页三维的基本流程](/uploads/gallery/agent-f3ec90f0f7247b308ba7e463d22ebf8cb8b0d8d2.png)\r\n\r\n## 云图从哪里来\r\n\r\n源头是 Abaqus 求解后的 ODB 文件，里面保存了网格和应力、位移等计算结果。用脚本只读打开它，选定分析步和结果帧，设置应力变量、壳截面点及平均方式，再导出带色标的 PNG。\r\n\r\n例如查看 Mises 应力时，需要同时说明单位、截面点和平均设置。下面展示的是 SNEG 截面点、75% 平均阈值下的应力云图局部，单位为 MPa。\r\n\r\n![Abaqus 应力云图与原始色标，局部展示](/uploads/gallery/agent-612f2223a35f7a124bc40732cd820d93af548426.png)\r\n\r\n## 怎么变成可以旋转的三维\r\n\r\n在相同显示条件下，用 Abaqus 的原生接口导出 WRL 文件，把几何和应力颜色一起保存。网页通过 Three.js 读取，就能拖动旋转、滚轮缩放。\r\n\r\n![保留网格线的三维云图整体视角](/uploads/gallery/agent-6bc0e8fde140e9181c3959e59bf8db30c3145d75.png)\r\n\r\n有两个小细节：一是处理浏览器无法识别的原生文字节点；二是使用无光照材质，减少灯光对应力颜色的影响。色标和显示条件需要另外保留，方便对照。\r\n\r\n![转到侧面，观察结构轮廓和应力分布](/uploads/gallery/agent-951ed04042caa66bf4cff447e70314b6a40f644a.png)\r\n\r\n## 放大看看\r\n\r\n网格线开启后，局部结构与色带的位置会更清楚。旋转只改变观察角度，显示的仍是选定结果帧和截面点下的计算结果。\r\n\r\n![放大后的网格与应力色带细节](/uploads/gallery/agent-8d5afeadc48c2eff93c3a343e3bd32abba8ce28b.png)\r\n\r\n这里展示的是三维图形，精确数值仍应从 ODB 的节点或单元结果读取。导出过程可以直接使用已有结果，无需重新求解。\r\n"
+      ],
+      "bodyMarkdown": "# 让 Abaqus 云图转起来：从计算结果到网页三维\r\n\r\n看有限元结果时，静态云图方便记录，但角度固定，背面和局部不容易看清。把结果放进网页三维视图，就可以旋转、放大，换个方向观察。\r\n\r\n![从计算结果到网页三维的基本流程](/uploads/gallery/agent-f3ec90f0f7247b308ba7e463d22ebf8cb8b0d8d2.png)\r\n\r\n## 云图从哪里来\r\n\r\n源头是 Abaqus 求解后的 ODB 文件，里面保存了网格和应力、位移等计算结果。用脚本只读打开它，选定分析步和结果帧，设置应力变量、壳截面点及平均方式，再导出带色标的 PNG。\r\n\r\n例如查看 Mises 应力时，需要同时说明单位、截面点和平均设置。下面展示的是 SNEG 截面点、75% 平均阈值下的应力云图局部，单位为 MPa。\r\n\r\n![Abaqus 应力云图与原始色标，局部展示](/uploads/gallery/agent-612f2223a35f7a124bc40732cd820d93af548426.png)\r\n\r\n## 怎么变成可以旋转的三维\r\n\r\n在相同显示条件下，用 Abaqus 的原生接口导出 WRL 文件，把几何和应力颜色一起保存。网页通过 Three.js 读取，就能拖动旋转、滚轮缩放。\r\n\r\n![保留网格线的三维云图整体视角](/uploads/gallery/agent-6bc0e8fde140e9181c3959e59bf8db30c3145d75.png)\r\n\r\n有两个小细节：一是处理浏览器无法识别的原生文字节点；二是使用无光照材质，减少灯光对应力颜色的影响。色标和显示条件需要另外保留，方便对照。\r\n\r\n![转到侧面，观察结构轮廓和应力分布](/uploads/gallery/agent-951ed04042caa66bf4cff447e70314b6a40f644a.png)\r\n\r\n## 放大看看\r\n\r\n网格线开启后，局部结构与色带的位置会更清楚。旋转只改变观察角度，显示的仍是选定结果帧和截面点下的计算结果。\r\n\r\n![放大后的网格与应力色带细节](/uploads/gallery/agent-8d5afeadc48c2eff93c3a343e3bd32abba8ce28b.png)\r\n\r\n这里展示的是三维图形，精确数值仍应从 ODB 的节点或单元结果读取。导出过程可以直接使用已有结果，无需重新求解。\r\n",
+      "seoTitle": "让 Abaqus 云图转起来：从计算结果到网页三维",
+      "seoDescription": "从已有 ODB 结果中导出云图和着色三维几何，再用 Three.js 在网页中旋转、缩放观察。用五张图记录基本流程与显示细节。",
+      "coverImage": "/uploads/gallery/agent-6bc0e8fde140e9181c3959e59bf8db30c3145d75.png",
+      "deletedAt": null
+    },
+    {
       "id": "article_mw382lrj_dr6jq162",
       "slug": "跑通了不一定对我如何被自己的自测骗过",
       "title": "跑通了，不一定对：我如何被自己的自测骗过",
@@ -7458,5 +7489,5 @@
   "page": 1,
   "pageSize": 1000,
   "pageCount": 1,
-  "total": 84
+  "total": 85
 }
